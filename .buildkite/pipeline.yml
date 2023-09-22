@@ -3,8 +3,8 @@ steps:
     async: false
     build:
       env:
-        BUILDKITE_PIPELINE_NAME="${BUILDKITE_PIPELINE_NAME}"
+        QUEUE_NAME="${BUILDKITE_PIPELINE_SLUG}"
     
   - command: echo "I am $BUIDLKITE_AGENT_NAME"
     agents:
-      queue: ${BUILDKITE_PIPELINE_SLUG}
+      queue: ${BUILDKITE_PIPELINE_SLUG}-agent
