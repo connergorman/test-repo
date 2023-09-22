@@ -1,0 +1,13 @@
+steps:
+  - trigger: agent-builder
+    async: false
+    build:
+      message: "${BUILDKITE_MESSAGE}"
+      commit: "${BUILDKITE_COMMIT}"
+      branch: "${BUILDKITE_BRANCH}"
+      env:
+        BUILDKITE_PIPELINE_NAME="${BUILDKITE_PIPELINE_NAME}"
+    
+  - command: echo "I am $BUIDLKITE_AGENT_NAME"
+    agents:
+      queue: ${BUILDKITE_PIPELINE_SLUG}
